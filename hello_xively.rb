@@ -10,7 +10,7 @@ end
 
 Thread.new do
   puts 'initializing mqtt'
-  client = MiniMqtt.new host: 'localhost'
+  client = MiniMqtt.new host: ENV['XIVELY_URL']
   client.connect do
     client.subscribe 'sample'
     client.get do |t, m|
