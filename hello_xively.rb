@@ -2,7 +2,7 @@ require 'cuba'
 require 'mini_mqtt'
 require 'ohm'
 
-Ohm.redis = Redic.new ENV['REDIS_URL']
+Ohm.redis = Redic.new ENV['REDISTOGO_URL']
 
 class Message < Ohm::Model
   attribute :body
