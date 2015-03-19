@@ -1,5 +1,5 @@
 require 'cuba'
-require 'mini_mqtt'
+require 'mqtt'
 require 'ohm'
 
 Ohm.redis = Redic.new ENV['REDISTOGO_URL']
@@ -8,12 +8,10 @@ class Message < Ohm::Model
   attribute :body
 end
 
-Thread.new do
+fork do
   puts 'initializing mqtt'
-  client = MiniMqtt.new host: ENV['XIVELY_URL']
-  client.connect do
-    client.subscribe 'sample'
-    client.get do |t, m|
+  MQTT::Client.connect ENV['XIVELY_URL'] do |c|
+    c.get 'sample' do |t, m|
       puts t, m
       Message.create body: m
     end

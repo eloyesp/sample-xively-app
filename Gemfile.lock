@@ -4,8 +4,7 @@ GEM
     cuba (3.4.0)
       rack
     hiredis (0.6.0)
-    mini-mqtt (0.0.1)
-      rake
+    mqtt (0.3.1)
     msgpack (0.5.11)
     nido (0.0.1)
     ohm (2.2.0)
@@ -14,7 +13,6 @@ GEM
       redic
       stal
     rack (1.6.0)
-    rake (10.4.2)
     redic (1.4.1)
       hiredis
     stal (0.1.0)
@@ -25,5 +23,5 @@ PLATFORMS
 
 DEPENDENCIES
   cuba
-  mini-mqtt
+  mqtt
   ohm
